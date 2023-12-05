@@ -1,160 +1,173 @@
 /**
-* Template Name: DevFolio
-* Updated: Nov 17 2023 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-(function() {
+ * Template Name: DevFolio
+ * Updated: Nov 17 2023 with Bootstrap v5.3.2
+ * Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
+ * Author: BootstrapMade.com
+ * License: https://bootstrapmade.com/license/
+ */
+(function () {
   "use strict";
 
   /**
    * Easy selector helper function
    */
   const select = (el, all = false) => {
-    el = el.trim()
+    el = el.trim();
     if (all) {
-      return [...document.querySelectorAll(el)]
+      return [...document.querySelectorAll(el)];
     } else {
-      return document.querySelector(el)
+      return document.querySelector(el);
     }
-  }
+  };
 
   /**
    * Easy event listener function
    */
   const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
+    let selectEl = select(el, all);
     if (selectEl) {
       if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
+        selectEl.forEach((e) => e.addEventListener(type, listener));
       } else {
-        selectEl.addEventListener(type, listener)
+        selectEl.addEventListener(type, listener);
       }
     }
-  }
+  };
 
   /**
-   * Easy on scroll event listener 
+   * Easy on scroll event listener
    */
   const onscroll = (el, listener) => {
-    el.addEventListener('scroll', listener)
-  }
+    el.addEventListener("scroll", listener);
+  };
 
   /**
    * Navbar links active state on scroll
    */
-  let navbarlinks = select('#navbar .scrollto', true)
+  let navbarlinks = select("#navbar .scrollto", true);
   const navbarlinksActive = () => {
-    let position = window.scrollY + 200
-    navbarlinks.forEach(navbarlink => {
-      if (!navbarlink.hash) return
-      let section = select(navbarlink.hash)
-      if (!section) return
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active')
+    let position = window.scrollY + 200;
+    navbarlinks.forEach((navbarlink) => {
+      if (!navbarlink.hash) return;
+      let section = select(navbarlink.hash);
+      if (!section) return;
+      if (
+        position >= section.offsetTop &&
+        position <= section.offsetTop + section.offsetHeight
+      ) {
+        navbarlink.classList.add("active");
       } else {
-        navbarlink.classList.remove('active')
+        navbarlink.classList.remove("active");
       }
-    })
-  }
-  window.addEventListener('load', navbarlinksActive)
-  onscroll(document, navbarlinksActive)
+    });
+  };
+  window.addEventListener("load", navbarlinksActive);
+  onscroll(document, navbarlinksActive);
 
   /**
    * Scrolls to an element with header offset
    */
   const scrollto = (el) => {
-    let header = select('#header')
-    let offset = header.offsetHeight
+    let header = select("#header");
+    let offset = header.offsetHeight;
 
-    if (!header.classList.contains('header-scrolled')) {
-      offset -= 16
+    if (!header.classList.contains("header-scrolled")) {
+      offset -= 16;
     }
 
-    let elementPos = select(el).offsetTop
+    let elementPos = select(el).offsetTop;
     window.scrollTo({
       top: elementPos - offset,
-      behavior: 'smooth'
-    })
-  }
+      behavior: "smooth",
+    });
+  };
 
   /**
    * Toggle .header-scrolled class to #header when page is scrolled
    */
-  let selectHeader = select('#header')
+  let selectHeader = select("#header");
   if (selectHeader) {
     const headerScrolled = () => {
       if (window.scrollY > 100) {
-        selectHeader.classList.add('header-scrolled')
+        selectHeader.classList.add("header-scrolled");
       } else {
-        selectHeader.classList.remove('header-scrolled')
+        selectHeader.classList.remove("header-scrolled");
       }
-    }
-    window.addEventListener('load', headerScrolled)
-    onscroll(document, headerScrolled)
+    };
+    window.addEventListener("load", headerScrolled);
+    onscroll(document, headerScrolled);
   }
 
   /**
    * Back to top button
    */
-  let backtotop = select('.back-to-top')
+  let backtotop = select(".back-to-top");
   if (backtotop) {
     const toggleBacktotop = () => {
       if (window.scrollY > 100) {
-        backtotop.classList.add('active')
+        backtotop.classList.add("active");
       } else {
-        backtotop.classList.remove('active')
+        backtotop.classList.remove("active");
       }
-    }
-    window.addEventListener('load', toggleBacktotop)
-    onscroll(document, toggleBacktotop)
+    };
+    window.addEventListener("load", toggleBacktotop);
+    onscroll(document, toggleBacktotop);
   }
 
   /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
+  on("click", ".mobile-nav-toggle", function (e) {
+    select("#navbar").classList.toggle("navbar-mobile");
+    this.classList.toggle("bi-list");
+    this.classList.toggle("bi-x");
+  });
 
   /**
    * Mobile nav dropdowns activate
    */
-  on('click', '.navbar .dropdown > a', function(e) {
-    if (select('#navbar').classList.contains('navbar-mobile')) {
-      e.preventDefault()
-      this.nextElementSibling.classList.toggle('dropdown-active')
-    }
-  }, true)
+  on(
+    "click",
+    ".navbar .dropdown > a",
+    function (e) {
+      if (select("#navbar").classList.contains("navbar-mobile")) {
+        e.preventDefault();
+        this.nextElementSibling.classList.toggle("dropdown-active");
+      }
+    },
+    true
+  );
 
   /**
    * Scrool with ofset on links with a class name .scrollto
    */
-  on('click', '.scrollto', function(e) {
-    if (select(this.hash)) {
-      e.preventDefault()
+  on(
+    "click",
+    ".scrollto",
+    function (e) {
+      if (select(this.hash)) {
+        e.preventDefault();
 
-      let navbar = select('#navbar')
-      if (navbar.classList.contains('navbar-mobile')) {
-        navbar.classList.remove('navbar-mobile')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
+        let navbar = select("#navbar");
+        if (navbar.classList.contains("navbar-mobile")) {
+          navbar.classList.remove("navbar-mobile");
+          let navbarToggle = select(".mobile-nav-toggle");
+          navbarToggle.classList.toggle("bi-list");
+          navbarToggle.classList.toggle("bi-x");
+        }
+        scrollto(this.hash);
       }
-      scrollto(this.hash)
-    }
-  }, true)
+    },
+    true
+  );
 
   /**
    * Scroll with ofset on page load with hash links in the url
    */
-  window.addEventListener('load', () => {
+  window.addEventListener("load", () => {
     if (window.location.hash) {
       if (select(window.location.hash)) {
-        scrollto(window.location.hash)
+        scrollto(window.location.hash);
       }
     }
   });
@@ -162,73 +175,73 @@
   /**
    * Intro type effect
    */
-  const typed = select('.typed')
+  const typed = select(".typed");
   if (typed) {
-    let typed_strings = typed.getAttribute('data-typed-items')
-    typed_strings = typed_strings.split(',')
-    new Typed('.typed', {
+    let typed_strings = typed.getAttribute("data-typed-items");
+    typed_strings = typed_strings.split(",");
+    new Typed(".typed", {
       strings: typed_strings,
       loop: true,
       typeSpeed: 100,
       backSpeed: 50,
-      backDelay: 2000
+      backDelay: 2000,
     });
   }
 
   /**
-   * Initiate portfolio lightbox 
+   * Initiate portfolio lightbox
    */
   const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
+    selector: ".portfolio-lightbox",
   });
 
   /**
    * Testimonials slider
    */
-  new Swiper('.testimonials-slider', {
+  new Swiper(".testimonials-slider", {
     speed: 600,
     loop: true,
     autoplay: {
       delay: 5000,
-      disableOnInteraction: false
+      disableOnInteraction: false,
     },
-    slidesPerView: 'auto',
+    slidesPerView: "auto",
     pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
+      el: ".swiper-pagination",
+      type: "bullets",
+      clickable: true,
+    },
   });
 
   /**
    * Portfolio details slider
    */
-  new Swiper('.portfolio-details-slider', {
+  new Swiper(".portfolio-details-slider", {
     speed: 400,
     loop: true,
     autoplay: {
       delay: 5000,
-      disableOnInteraction: false
+      disableOnInteraction: false,
     },
     pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
+      el: ".swiper-pagination",
+      type: "bullets",
+      clickable: true,
+    },
   });
 
   /**
    * Preloader
    */
-  let preloader = select('#preloader');
+  let preloader = select("#preloader");
   if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove()
+    window.addEventListener("load", () => {
+      preloader.remove();
     });
   }
 
   /**
-   * Initiate Pure Counter 
+   * Initiate Pure Counter
    */
   new PureCounter();
 
@@ -237,8 +250,8 @@
   }
 
   const calculateFactorial = () => {
-    const inputNumber = parseInt(select('#factorial').value);
-    const resultInput = select('#result-factorial');
+    const inputNumber = parseInt(select("#factorial").value);
+    const resultInput = select("#result-factorial");
 
     if (!isNaN(inputNumber)) {
       const result = factorial(inputNumber);
@@ -248,40 +261,92 @@
     }
   };
 
-  on('click', '#calculate-factorial-Btn', calculateFactorial);
+  on("click", "#calculate-factorial-Btn", calculateFactorial);
 
   function diceRandom() {
-    let dice = Math.floor((Math.random() * 6) + 1);
+    let dice = Math.floor(Math.random() * 6 + 1);
     return dice;
   }
 
   const handleRandomButtonClick = () => {
-    const resultInput = select('#result-random-dice');
+    const resultInput = select("#result-random-dice");
     const randomValue = diceRandom();
-    
+
     resultInput.value = randomValue;
   };
 
-  on('click', '#random-dice-Btn', handleRandomButtonClick);
+  on("click", "#random-dice-Btn", handleRandomButtonClick);
 
-  function findCircle(n){
-    length_circle = 2 * (3.14 * n)
-    return length_circle.toFixed(2)
-}
+  function findCircle(n) {
+    let length_circle = 2 * (3.14 * n);
+    return length_circle.toFixed(2);
+  }
 
   const calculateRadiusCircle = () => {
-    const inputNumber = parseInt(select('#radius-circle').value)
-    const resultInput = select('#result-radius-cirlce')
+    const inputRadius_Circle = parseFloat(document.getElementById('radius-circle').value);
+    const resultInput = document.getElementById("result-radius-cirlce");
 
-    if (!isNaN(inputNumber)) {
-      const result = findCircle(inputNumber);
+    if (!isNaN(inputRadius_Circle)) {
+      const result = findCircle(inputRadius_Circle);
       resultInput.value = result;
     } else {
       resultInput.value = "Invalid input";
     }
+  };
 
+  document.getElementById("calculate-raduisCircle-Btn").addEventListener("click", calculateRadiusCircle)
+
+
+  const F2C = (n) => {
+    let celsius = (n - 32) / 1.8;
+    return celsius.toFixed(2);
+  };
+  
+  const calculateF2C = () => {
+    const inputNumber = parseFloat(document.getElementById("f2c").value);
+    const resultInput = document.getElementById("result-f2c");
+  
+    if (!isNaN(inputNumber)) {
+      const result = F2C(inputNumber);
+      resultInput.value = `${result} ํC`;
+    } else {
+      resultInput.value = "Invalid input";
+    }
+  };
+  
+  document.getElementById("calculate-f2c-Btn").addEventListener("click", calculateF2C);
+
+  let currentCharCode = 'A'.charCodeAt(0)
+
+  const printAlphabet = () => {
+    const alphabetInput = document.getElementById('a-z');
+    alphabetInput.value = String.fromCharCode(currentCharCode);
+    currentCharCode++;
+
+    if (currentCharCode > 'Z'.charCodeAt(0)) {
+      currentCharCode = 'A'.charCodeAt(0)
+    }
+  };
+
+  const intervalId = setInterval(printAlphabet, 1000);
+
+  function Day2Second(day){
+    let seconds = (day * 24) * 3600
+    return seconds
   }
 
-  on('click', '#calculate-raduisCircle-Btn', calculateRadiusCircle)
+  const calculateD2S = () => {
+    const inputNumber = parseInt(select("#d2s").value);
+    const resultInput = select("#result-d2s");
 
-})()
+    if (!isNaN(inputNumber)) {
+      const result = Day2Second(inputNumber);
+      resultInput.value = `${result} seconds`;
+    } else {
+      resultInput.value = "Invalid input";
+    }
+  };
+
+  on("click", "#calculate-d2s-Btn", calculateD2S);
+
+})();
