@@ -349,4 +349,19 @@
 
   on("click", "#calculate-d2s-Btn", calculateD2S);
 
+
+  function fetchRandomDog() {
+    fetch('https://dog.ceo/api/breeds/image/random')
+      .then(response => response.json())
+      .then(data => {
+        const dogImage = select('#dogImage');
+        dogImage.src = data.message;
+      })
+      .catch(error => {
+        console.error('Error fetching random dog:', error);
+      });
+  }
+
+  on("click", "#fetchButton-Btn", fetchRandomDog)
+
 })();
