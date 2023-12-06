@@ -46,6 +46,7 @@
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">API</a></li>
           <li><a class="nav-link scrollto" href="#services">JAVA</a></li>
+          <li><a class="nav-link scrollto" href="#chart">CHART</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -237,6 +238,35 @@
       </div>
     </section><!-- End Services Section -->
 
+    <!-- ======= Chart Section ======= -->
+    <section id="chart" class="about-mf sect-pt4 route">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="box-shadow-full">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="title-box-2">
+                      <h5 class="title-left">
+                        Chart
+                      </h5>
+                    </div>
+                    <div>
+                        <canvas id="myChart" style="width:10%;max-width:350px;"></canvas>
+                    </div>
+                  </div>
+                </div>
+                <div class="chart-container">
+                  <canvas id="temperatureChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End About Section -->
+
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">
       <div class="overlay-mf"></div>
@@ -360,6 +390,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </body>
 

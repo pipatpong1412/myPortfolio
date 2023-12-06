@@ -364,4 +364,70 @@
 
   on("click", "#fetchButton-Btn", fetchRandomDog)
 
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+    var yValues = [55, 49, 44, 24, 15];
+    var barColors = [
+      "#b91d47",
+      "#00aba9",
+      "#2b5797",
+      "#e8c3b9",
+      "#1e7145"
+    ];
+  
+    new Chart("myChart", {
+      type: "doughnut",
+      data: {
+        labels: xValues,
+        datasets: [{
+          backgroundColor: barColors,
+          data: yValues
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: "World Wide Wine Production 2018"
+        }
+      }
+    });
+  });
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // ดึงข้อมูลจากไฟล์ JSON
+    fetch('assets/country.json')
+        .then(response => response.json())
+        .then(data => {
+            // สร้างข้อมูลสำหรับ Chart.js
+            const labels = data.map(item => item.country);
+            const temperatures = data.map(item => item.temperature);
+
+            // สร้างกราฟ
+            const ctx = document.getElementById('temperatureChart').getContext('2d');
+            const temperatureChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Temperature (°C)',
+                        data: temperatures,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+});
+
 })();
