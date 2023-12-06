@@ -44,9 +44,12 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">API</a></li>
-          <li><a class="nav-link scrollto" href="#services">JAVA</a></li>
+          <li><a class="nav-link scrollto" href="#about">about</a></li>
+          <li><a class="nav-link scrollto" href="#api">API</a></li>
+          <li><a class="nav-link scrollto" href="#java-script">JAVA</a></li>
           <li><a class="nav-link scrollto" href="#chart">CHART</a></li>
+          <li><a class="nav-link scrollto" href="#google-sheet">Sheet</a></li>
+          <li><a class="nav-link scrollto" href="#crypto">Crypto</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -71,7 +74,6 @@
 
   <main id="main">
 
-    <!-- ======= About Section ======= -->
     <section id="about" class="about-mf sect-pt4 route">
       <div class="container">
         <div class="row">
@@ -89,8 +91,8 @@
                       <div class="about-info">
                         <p><span class="title-s">Name: </span> <span>Pipatpong Thammasit</span></p>
                         <p><span class="title-s">Profile: </span> <span>Full Stack Developer</span></p>
-                        <p><span class="title-s">Email: </span> <span>Pipatpong01.th@gmail.com</span></p>
-                        <p><span class="title-s">Phone: </span> <span>0934204291</span></p>
+                        <p><span class="title-s">Email: </span> <span>pipatpong01.th@gmail.com</span></p>
+                        <p><span class="title-s">Phone: </span> <span>093-420-4291</span></p>
                       </div>
                     </div>
                   </div>
@@ -98,15 +100,15 @@
                     <p class="title-s">Skill</p>
                     <span>HTML</span> <span class="pull-right">50%</span>
                     <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <span>CSS3</span> <span class="pull-right">50%</span>
                     <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <span>JAVASCRIPT</span> <span class="pull-right">50%</span>
                     <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
                 </div>
@@ -114,14 +116,15 @@
                   <div class="about-me pt-4 pt-md-0">
                     <div class="title-box-2">
                       <h5 class="title-left">
-                        API
+                        About me
                       </h5>
                     </div>
-                    <div>
-                      <button type="submit" id="fetchButton-Btn" class="button button-a button-big button-rouded">Random</button>
-                      <hr>
-                      <img id="dogImage" src="" alt="Random Dog Image">
-                    </div>
+                    <p class="lead">
+                      I have just graduated from SAKON NAKHON RAJABHAT UNIVERSITY with 3.5 years, It's faster than my classmates in the same branch.
+                    </p>
+                    <p class="lead">
+                      I have really found a passion for Programming. Even though i am beginner uut my strengths are ready for learing new things for improve my skills.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -131,14 +134,82 @@
       </div>
     </section><!-- End About Section -->
 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services-mf pt-5 route">
+    <!-- ======= API Section ======= -->
+    <section id="api" class="about-mf sect-pt4 route">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="contact-mf">
+              <div id="contact" class="box-shadow-full">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="title-box-2">
+                      <h5 class="title-left">
+                        API 001 
+                      </h5> 
+                      <p class="lead" style="padding: 5px">
+                        random anime neko character
+                      </p>
+                    </div>
+                    <div>
+                      <div>
+                        <button type="submit" id="fetchButton" class="button button-a button-big button-rouded">Click</button>
+                      </div>
+                      <hr>
+                      <img id="neko">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="title-box-2 pt-4 pt-md-0">
+                      <h5 class="title-left">
+                        API 002
+                      </h5>
+                      <p class="lead" style="padding: 5px">
+                        Predict your nation from name 
+                      </p>
+                    </div>
+                    <div>
+                      <form action="#" method="post" role="form" class="php-email-form">
+                        <div class="row">
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <input type="text" name="predict-name" class="form-control" id="predict-name" placeholder="Enter your name" required>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <input type="text" class="form-control" name="predict-count" id="predict-count" placeholder="Result Count" readonly>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <input type="text" class="form-control" name="predict-country" id="predict-country" placeholder="Result Country" readonly>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div>
+                      <button type="submit" id="predict-btn" class="button button-a button-big button-rouded">Click</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End API Section -->
+
+    <!-- ======= JavaScript Program Section ======= -->
+    <section id="java-script" class="services-mf pt-5 route">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
             <div class="title-box text-center">
               <h3 class="title-a">
-                JAVA SCRIPT program
+                JAVA SCRIPT lab
               </h3>
               <p class="subtitle-a">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -160,20 +231,6 @@
                 <br>
                 <div>
                   <button type="submit" id="calculate-factorial-Btn" class="button button-a button-big button-rouded">Calculate</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-box">
-              <div class="service-content">
-                <h2 class="s-title">Dice ramdom</h2>
-                <div class="form-group">
-                  <input type="text" class="form-control" id="result-random-dice" placeholder="Result" readonly>
-                </div>
-                <br>
-                <div>
-                  <button type="submit" id="random-dice-Btn" class="button button-a button-big button-rouded">Random</button>
                 </div>
               </div>
             </div>
@@ -210,14 +267,14 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <!-- <div class="col-md-4">
             <div class="service-box">
               <div class="service-content">
                 <h2 class="s-title">a - z</h2>
               </div>
               <input style="text-align: center;" type="text" class="form-control" id="a-z" readonly>
             </div>
-          </div>
+          </div> -->
           <div class="col-md-4">
             <div class="service-box">
               <div class="service-content">
@@ -234,9 +291,23 @@
               </div>
             </div>
           </div>
+          <div class="col-md-4">
+            <div class="service-box">
+              <div class="service-content">
+                <h2 class="s-title">Dice ramdom</h2>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="result-random-dice" placeholder="Result" readonly>
+                </div>
+                <br>
+                <div>
+                  <button type="submit" id="random-dice-Btn" class="button button-a button-big button-rouded">Random</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </section><!-- End Services Section -->
+    </section><!-- End JavaScript Program Section -->
 
     <!-- ======= Chart Section ======= -->
     <section id="chart" class="about-mf sect-pt4 route">
@@ -253,10 +324,24 @@
                       </h5>
                     </div>
                     <div>
-                        <canvas id="myChart" style="width:10%;max-width:350px;"></canvas>
+                      <h2>
+                        Life Circle
+                      </h2>
+                    </div>
+                    <hr>
+                    <div>
+                        <canvas id="myChart" style="width:100%;max-width:500px;"></canvas>
                     </div>
                   </div>
                 </div>
+                <br>
+                <br>
+                <div>
+                  <h2>
+                    Temperature Chart
+                  </h2>
+                </div>
+                <hr>
                 <div class="chart-container">
                   <canvas id="temperatureChart"></canvas>
                 </div>
@@ -265,7 +350,115 @@
           </div>
         </div>
       </div>
-    </section><!-- End About Section -->
+    </section><!-- End Chart Section -->
+
+    <!-- ======= Google Sheet Section ======= -->
+    <section id="google-sheet" class="about-mf sect-pt4 route">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="contact-mf">
+              <div id="contact" class="box-shadow-full">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="title-box-2">
+                      <h5 class="title-left">
+                        Google Sheet Form
+                      </h5>
+                    </div>
+                    <div>
+                      <form id="my-form"
+                      method="POST" 
+                      action="https://script.google.com/macros/s/AKfycbwg56FPyRgEd0ePVQ8j5tNFpqovtaOcJNFkEh9mWARo6RTGNKXeo9aSOjBeeabTRajs/exec">
+                        <div class="row">
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <input type="text" name="Name" class="form-control" id="Name" placeholder="Your Name" required>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <input type="email" class="form-control" name="Email" id="Email" placeholder="Your Email" required>
+                            </div>
+                          </div>
+                          <br>
+                          <div class="col-md-12 text-center">
+                            <button type="submit" id="submit-Btn" class="button button-a button-big button-rouded">Send</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="title-box-2 pt-4 pt-md-0">
+                      <h5 class="title-left">
+                        Result Show
+                      </h5>
+                    </div>
+                    <div class="more-info">
+                      <iframe src="https://docs.google.com/spreadsheets/d/19qcNmvZRaZBcFeHAVSBKKJteuqD7NOk2vZJ3tha2d2s/edit?usp=sharing" width="500px" height="400px"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Google Sheet Section -->
+
+    <!-- ======= Crypto Section ======= -->
+    <section id="crypto" class="about-mf sect-pt4 route">
+      <div></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="contact-mf">
+              <div id="contact" class="box-shadow-full">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="title-box-2">
+                      <h5 class="title-left">
+                        Crypto Exchange Rate
+                      </h5>
+                      <p class="lead" style="padding: 5px">
+                        View the Bitcoin Price Index (BPI), Updated every 10 seconds
+                      </p>
+                      <hr>
+                    </div>
+                    <div>
+                      <form action="#" method="post" role="form" class="php-email-form">
+                        <div class="row">
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <input type="text" name="crypto-time" class="form-control" id="crypto-time" readonly>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <input type="text" class="form-control" name="crypto-USD" id="crypto-USD" readonly>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <input type="text" class="form-control" name="crypto-GBP" id="crypto-GBP" readonly>
+                            </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <input type="text" class="form-control" name="crypto-EUR" id="crypto-EUR"  readonly>
+                            </div>
+                          </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Cryto Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">

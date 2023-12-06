@@ -316,19 +316,19 @@
   
   document.getElementById("calculate-f2c-Btn").addEventListener("click", calculateF2C);
 
-  let currentCharCode = 'A'.charCodeAt(0)
+  // let currentCharCode = 'A'.charCodeAt(0)
 
-  const printAlphabet = () => {
-    const alphabetInput = document.getElementById('a-z');
-    alphabetInput.value = String.fromCharCode(currentCharCode);
-    currentCharCode++;
+  // const printAlphabet = () => {
+  //   const alphabetInput = document.getElementById('a-z');
+  //   alphabetInput.value = String.fromCharCode(currentCharCode);
+  //   currentCharCode++;
 
-    if (currentCharCode > 'Z'.charCodeAt(0)) {
-      currentCharCode = 'A'.charCodeAt(0)
-    }
-  };
+  //   if (currentCharCode > 'Z'.charCodeAt(0)) {
+  //     currentCharCode = 'A'.charCodeAt(0)
+  //   }
+  // };
 
-  const intervalId = setInterval(printAlphabet, 1000);
+  // const intervalId = setInterval(printAlphabet, 1000);
 
   function Day2Second(day){
     let seconds = (day * 24) * 3600
@@ -350,24 +350,25 @@
   on("click", "#calculate-d2s-Btn", calculateD2S);
 
 
-  function fetchRandomDog() {
-    fetch('https://dog.ceo/api/breeds/image/random')
+  function fetchRandomNeko() {
+    fetch('https://nekos.best/api/v2/neko')
       .then(response => response.json())
       .then(data => {
-        const dogImage = select('#dogImage');
-        dogImage.src = data.message;
+        const nekoImage = document.getElementById('neko');
+        nekoImage.src = data.results[0].url;
       })
       .catch(error => {
-        console.error('Error fetching random dog:', error);
+        console.error('Error fetching random neko:', error);
       });
   }
-
-  on("click", "#fetchButton-Btn", fetchRandomDog)
+  
+  document.getElementById('fetchButton').addEventListener('click', fetchRandomNeko);
+  
 
 
   document.addEventListener("DOMContentLoaded", function () {
-    var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-    var yValues = [55, 49, 44, 24, 15];
+    var xValues = ["Eat", "Sleep", "Exercise", "Relax", "Work"];
+    var yValues = [3, 8, 1, 4, 8];
     var barColors = [
       "#b91d47",
       "#00aba9",
@@ -429,5 +430,70 @@
         })
         .catch(error => console.error('Error fetching data:', error));
 });
+
+window.addEventListener("load", function() {
+  const form = document.getElementById('my-form');
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const action = e.target.action;
+    fetch(action, {
+      method: 'POST',
+      body: data,
+    })
+    .then(() => {
+      alert("Success!");
+    })
+  });
+});
+
+function predictName() {
+  const nameToCheck = document.getElementById('predict-name').value;
+
+  const apiUrl = `https://api.nationalize.io/?name=${nameToCheck}`;
+  
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      const count = data.count;
+      const countries = data.country;
+
+      document.getElementById('predict-count').value = count;
+      document.getElementById('predict-country').value = countries.map(country => `${country.country_id}: ${country.probability}`).join(', ');
+    })
+    .catch(error => {
+      console.error("Error fetching data:", error);
+    });
+}
+
+document.getElementById('predict-btn').addEventListener('click', predictName)
+
+function fetchCryptoData() {
+  const apiUrl = 'https://api.coindesk.com/v1/bpi/currentprice.json';
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      // const updateTime = data.time.updated;
+      const utcUpdateTime = data.time.updatedISO;
+      const thaiUpdateTime = new Date(utcUpdateTime).toLocaleString('en-US', { timeZone: 'Asia/Bangkok' });
+
+      const usdRate = data.bpi.USD.rate;
+      const gbpRate = data.bpi.GBP.rate;
+      const eurRate = data.bpi.EUR.rate;
+
+      document.getElementById('crypto-time').value = `Update Time (ICT): ${thaiUpdateTime}`;
+      document.getElementById('crypto-USD').value = `USD Rate: ${usdRate}`;
+      document.getElementById('crypto-GBP').value = `GBP Rate: ${gbpRate}`;
+      document.getElementById('crypto-EUR').value = `EUR Rate: ${eurRate}`;
+    })
+    .catch(error => {
+      console.error('Error fetching crypto data:', error);
+    });
+}
+
+  setInterval(fetchCryptoData, 10000);
+  fetchCryptoData()
+
 
 })();
