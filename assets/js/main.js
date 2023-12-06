@@ -316,20 +316,6 @@
   
   document.getElementById("calculate-f2c-Btn").addEventListener("click", calculateF2C);
 
-  // let currentCharCode = 'A'.charCodeAt(0)
-
-  // const printAlphabet = () => {
-  //   const alphabetInput = document.getElementById('a-z');
-  //   alphabetInput.value = String.fromCharCode(currentCharCode);
-  //   currentCharCode++;
-
-  //   if (currentCharCode > 'Z'.charCodeAt(0)) {
-  //     currentCharCode = 'A'.charCodeAt(0)
-  //   }
-  // };
-
-  // const intervalId = setInterval(printAlphabet, 1000);
-
   function Day2Second(day){
     let seconds = (day * 24) * 3600
     return seconds
